@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SectionHeaderView" customModule="EasyMeals" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="etL-Bi-FOG"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HeaderView" customModule="EasyMeals" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e2j-Lp-3Wq">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Dxf-Yi-MkG">
+                            <rect key="frame" x="75" y="18" width="58.5" height="63"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXx-SV-bW8">
+                                    <rect key="frame" x="0.0" y="0.0" width="44" height="25"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="18"/>
+                                    <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5T-NJ-6xI">
+                                    <rect key="frame" x="0.0" y="30" width="58.5" height="33"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="24"/>
+                                    <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_quantity_section" translatesAutoresizingMaskIntoConstraints="NO" id="ifG-n3-YVh">
+                            <rect key="frame" x="20" y="32.5" width="35" height="34"/>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9hw-BD-Oll">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                            <color key="backgroundColor" white="0.89750998859999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="fK5-xz-Kwf"/>
+                            </constraints>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow_section" translatesAutoresizingMaskIntoConstraints="NO" id="Suo-rj-SIq">
+                            <rect key="frame" x="345" y="44" width="20" height="11"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Suo-rj-SIq" firstAttribute="centerY" secondItem="e2j-Lp-3Wq" secondAttribute="centerY" constant="6" id="ERd-nb-gJM"/>
+                        <constraint firstItem="ifG-n3-YVh" firstAttribute="centerY" secondItem="e2j-Lp-3Wq" secondAttribute="centerY" constant="6" id="HQy-D5-tS4"/>
+                        <constraint firstItem="ifG-n3-YVh" firstAttribute="leading" secondItem="e2j-Lp-3Wq" secondAttribute="leading" constant="20" id="WCY-DE-mjs"/>
+                        <constraint firstItem="Dxf-Yi-MkG" firstAttribute="centerY" secondItem="e2j-Lp-3Wq" secondAttribute="centerY" constant="6" id="YWg-ie-xd4"/>
+                        <constraint firstItem="Dxf-Yi-MkG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="9hw-BD-Oll" secondAttribute="bottom" constant="5" id="Zta-JV-hxd"/>
+                        <constraint firstItem="9hw-BD-Oll" firstAttribute="leading" secondItem="e2j-Lp-3Wq" secondAttribute="leading" id="a43-wd-hVa"/>
+                        <constraint firstAttribute="trailing" secondItem="9hw-BD-Oll" secondAttribute="trailing" id="cEd-2C-00P"/>
+                        <constraint firstItem="Dxf-Yi-MkG" firstAttribute="leading" secondItem="ifG-n3-YVh" secondAttribute="trailing" constant="20" id="dgc-EN-Fpe"/>
+                        <constraint firstItem="Suo-rj-SIq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Dxf-Yi-MkG" secondAttribute="trailing" constant="10" id="hhM-16-MqU"/>
+                        <constraint firstItem="9hw-BD-Oll" firstAttribute="top" secondItem="e2j-Lp-3Wq" secondAttribute="top" id="kKU-Nu-N9e"/>
+                        <constraint firstAttribute="trailing" secondItem="Suo-rj-SIq" secondAttribute="trailing" constant="10" id="lly-FV-HrD"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="e2j-Lp-3Wq" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="XYW-4s-Jed"/>
+                <constraint firstItem="e2j-Lp-3Wq" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="duU-jF-HMO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="e2j-Lp-3Wq" secondAttribute="bottom" id="gBZ-JR-qGf"/>
+                <constraint firstItem="e2j-Lp-3Wq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="yXt-Vl-ueu"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="arrowImageView" destination="Suo-rj-SIq" id="vKt-yq-O8i"/>
+                <outlet property="sectionImageView" destination="ifG-n3-YVh" id="RIi-YJ-mYP"/>
+                <outlet property="sectionNameLabel" destination="PXx-SV-bW8" id="YhA-ui-VTc"/>
+                <outlet property="titleLabel" destination="i5T-NJ-6xI" id="VZY-s3-A0v"/>
+            </connections>
+            <point key="canvasLocation" x="-122.40000000000001" y="-143.47826086956522"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_arrow_section" width="20" height="11"/>
+        <image name="img_quantity_section" width="35.5" height="34.5"/>
+    </resources>
+</document>
