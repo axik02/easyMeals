@@ -128,6 +128,9 @@ class AddIngredientPopUpVC: ParentVC {
 extension AddIngredientPopUpVC {
     override func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.superview?.layer.borderWidth = 0
+        if textField == unitTextField {
+            unitTextField.text = "kg"
+        }
         super.textFieldDidBeginEditing(textField)
     }
     

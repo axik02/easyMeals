@@ -15,9 +15,17 @@ class MealTVCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var shuffleButton: UIButton!
     
+    var menuRecipeData: MenuRecipeData?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        mealImageView.image = #imageLiteral(resourceName: "img_splash")
+        
     }
     
     func configureCell(withRecipe recipe:RecipesData) {
@@ -33,6 +41,7 @@ class MealTVCell: UITableViewCell {
 
     
     func configureCell(withMenuRecipe recipe:MenuRecipeData) {
+        self.menuRecipeData = recipe
         self.mealNameLabel.text = recipe.recipeTitle
         self.categoryLabel.text = recipe.categoriesTitle
         if let files = recipe.files {

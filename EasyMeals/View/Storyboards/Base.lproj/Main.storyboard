@@ -150,7 +150,7 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="VmD-MX-oZ6"/>
                                         </connections>
                                     </collectionView>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GTq-eE-v7d">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GTq-eE-v7d">
                                         <rect key="frame" x="0.0" y="50" width="375" height="477"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="yJf-9q-iNd">
@@ -501,7 +501,7 @@
                                             <outlet property="delegate" destination="FJU-Nh-uN3" id="pEJ-Lq-f5G"/>
                                         </connections>
                                     </collectionView>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IQi-jD-6fD">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IQi-jD-6fD">
                                         <rect key="frame" x="0.0" y="50" width="375" height="477"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="M56-gD-0C5">
@@ -763,7 +763,6 @@
                                                 <state key="normal" image="ic_pencil"/>
                                                 <connections>
                                                     <action selector="editBtnTap:" destination="jaq-eU-I19" eventType="touchUpInside" id="7mF-ow-e9F"/>
-                                                    <action selector="refreshBtnTap:" destination="FJU-Nh-uN3" eventType="touchUpInside" id="HOR-vO-Mdq"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIy-yT-DNc">
@@ -774,7 +773,6 @@
                                                 </constraints>
                                                 <state key="normal" image="ic_share"/>
                                                 <connections>
-                                                    <action selector="shareBtnTap:" destination="FJU-Nh-uN3" eventType="touchUpInside" id="4zO-s4-JB4"/>
                                                     <action selector="shareBtnTap:" destination="jaq-eU-I19" eventType="touchUpInside" id="WF7-7U-gh8"/>
                                                 </connections>
                                             </button>
@@ -787,7 +785,6 @@
                                                 <state key="normal" image="ic_trash_can"/>
                                                 <connections>
                                                     <action selector="deleteBtnTap:" destination="jaq-eU-I19" eventType="touchUpInside" id="dSU-ur-bH2"/>
-                                                    <action selector="settingsBtnTap:" destination="FJU-Nh-uN3" eventType="touchUpInside" id="KXv-jj-ZaE"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -839,7 +836,7 @@
                                                                 <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MNf-9d-xWc">
+                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MNf-9d-xWc">
                                                                 <rect key="frame" x="0.0" y="43" width="375" height="45"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="5" id="t5p-fr-0cf">
@@ -1085,7 +1082,7 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMh-qF-PzW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3462" y="-164"/>
+            <point key="canvasLocation" x="3461.5999999999999" y="-164.16791604197903"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RvG-g7-kju">
@@ -1226,17 +1223,17 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vVS-H8-thn">
-                                                            <rect key="frame" x="20" y="0.0" width="560" height="1"/>
+                                                            <rect key="frame" x="20" y="0.0" width="335" height="1"/>
                                                             <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="j7h-7c-eQM"/>
                                                             </constraints>
                                                         </view>
                                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="siB-mx-KfY" customClass="DesignableView" customModule="EasyMeals" customModuleProvider="target">
-                                                            <rect key="frame" x="20" y="21" width="560" height="168"/>
+                                                            <rect key="frame" x="20" y="21" width="335" height="168"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_splash" translatesAutoresizingMaskIntoConstraints="NO" id="Vcg-lI-8pu">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="560" height="168"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="168"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1254,7 +1251,7 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtO-EW-FVY">
-                                                            <rect key="frame" x="20" y="199" width="560" height="33"/>
+                                                            <rect key="frame" x="20" y="199" width="335" height="33"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="24"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>

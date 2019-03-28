@@ -26,7 +26,7 @@ class AddPreparationDetailsVC: ParentVC {
 
     @IBAction func saveBtnTap(_ button: UIButton) {
         
-        if detailsTextView.text! != "" && detailsTextView.text! != "Start typing" {
+        if detailsTextView.text! != "Start typing" {
             let params = [
                 "description" : detailsTextView.text!
                 ] as JSONParameters
@@ -53,7 +53,7 @@ class AddPreparationDetailsVC: ParentVC {
                 case .success(_):
                     self.goBackToPreviousVC()
                 case .error(let error):
-                    Constants.showAlert("Error", message: error.description)
+                    Constants.showAlert("Error", message: error.localizedDescription)
                 }
             }
         }
@@ -71,12 +71,14 @@ class AddPreparationDetailsVC: ParentVC {
     
     private func setUpTextView() {
         detailsTextView.keyboardAppearance = .dark
-        detailsTextView.text = recipe.recipeData?.description ?? "Start typing"
+        let recipeDescription = recipe.recipeData?.description ?? "Start typing"
+        detailsTextView.text = recipeDescription == "" ? "Start typing" : recipeDescription
         if detailsTextView.text == "Start typing" {
             detailsTextView.textColor = #colorLiteral(red: 0.7921568627, green: 0.7921568627, blue: 0.7921568627, alpha: 1)
         } else {
             detailsTextView.textColor = #colorLiteral(red: 0.2177612185, green: 0.2177672982, blue: 0.2177640498, alpha: 1)
         }
+        
     }
     
     private func goBackToPreviousVC() {

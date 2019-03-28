@@ -34,18 +34,19 @@ class RecipeViewModel {
     
     public var recipeImageView: UIImageView {
         let stringUrl = recipe.recipeData?.file?.filename ?? ""
+        let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "img_splash")
         if !stringUrl.isEmpty {
             if let url = URL(string: stringUrl) {
-                let imageView = UIImageView()
                 imageView.af_setImage(withURL: url)
                 return imageView
             } else {
                 print("Wrong Image URL")
-                return UIImageView()
+                return imageView
             }
         } else {
             print("Wrong Image URL or some variable is nil")
-            return UIImageView()
+            return imageView
         }
     }
     
@@ -59,6 +60,10 @@ class RecipeViewModel {
     
     public var ingredients: [Ingredient] {
         return recipe.recipeData?.ingredients ?? []
+    }
+    
+    public var ownerID: Int {
+        return recipe.recipeData?.usersid ?? -1
     }
     
 }

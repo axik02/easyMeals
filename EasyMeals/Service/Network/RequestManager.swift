@@ -97,6 +97,17 @@ class RequestManager {
         Constants.keychainInstance.set(jwtToken, forKey: Constants.keychainKeys.keyForJWTToken)
         Constants.keychainInstance.set(refreshToken, forKey: Constants.keychainKeys.keyForRefreshToken)
     }
+    
+    static public func restorePassword(withEmail email: String, completed: @escaping (String) -> ()) {
+        Service_API.callWebservice(apiPath: APIRoutes.passwordRecovery.rawValue, method: .post, header: [:], params: ["email" : email]) { (result) in
+            switch result {
+            case .success(_):
+                completed("Recovery link has been sent to your email.")
+            case .error(let error):
+                completed(error.localizedDescription)
+            }
+        }
+    }
 
     // MARK: - User requests
     
@@ -273,6 +284,17 @@ class RequestManager {
         }
     }
     
+    static public func deleteRecipe(recipeID: Int, complete: @escaping RecipeDeleteCompleted) {
+        Service_API.callWebservice(apiPath: APIRoutes.recipeByID.rawValue, method: .delete, header: tokenHeader, params: [:]) { (result) in
+            switch result {
+            case .success(_):
+                complete(RequestResult.success("Recipe was successfully deleted."))
+            case .error(let error):
+                complete(RequestResult.error(error))
+            }
+        }
+    }
+    
     static public func getRecipeBySearchValue(_ searchValue:String, page: Int, complete: @escaping RecipesFetchCompleted) {
         Service_API.callWebservice(apiPath: APIRoutes.recipeFind.rawValue, method: .get, header: tokenHeader, params: ["page": page, "search_value": searchValue ]) { (result) in
             switch result {
@@ -326,8 +348,8 @@ class RequestManager {
             case .success(let data):
                 do {
                     let decoder = JSONDecoder()
-                    let recipes = try decoder.decode(MenuRecipeData.self, from: data)
-                    complete(RequestResult.success(recipes))
+                    let recipe = try decoder.decode(SingleMenuRecipe.self, from: data)
+                    complete(RequestResult.success(recipe))
                 } catch {
                     complete(RequestResult.error(error as NSError))
                 }

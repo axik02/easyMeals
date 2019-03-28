@@ -107,11 +107,38 @@ extension ContentCVCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let recipe = recipesArray[indexPath.row]
         let recipeID = recipe.recipeid
-        self.parentVCDelegate.controllerPerformSegue(withIdentifier: "GotoRecipeDetailsVC", item: recipeID)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc: RecipeDetailsVC = storyboard.instantiateViewController(withIdentifier: "RecipeDetailsVC") as! RecipeDetailsVC
+        vc.recipeID = recipeID
+        vc.recipeDelegate = self
+        self.parentVCDelegate.getVC().navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+}
+
+extension ContentCVCell: RecipeDelegate {
+    
+    func recipeDidDeleted(_ recipeID: Int) {
+        var index = -1
+        
+        for (i,recipe) in self.recipesArray.enumerated() {
+            if recipe.recipeid == recipeID {
+                index = i
+            }
+        }
+        
+        if index != -1 {
+            let indexPath = IndexPath(row: index, section: 0)
+            self.recipesArray.remove(at: index)
+            self.contentTableView.deleteRows(at: [indexPath], with: .fade)
+            UIView.performWithoutAnimation {
+                self.contentTableView.reloadData()
+            }
+        }
     }
     
 }

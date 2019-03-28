@@ -36,7 +36,7 @@ enum APIRoutes: String {
     
     case recipeMyGet = "recipe/my" // GET
     case recipeByCategoryIDGet = "recipe/my/by-category/" // + {Category_ID} GET
-    case recipeByID = "recipe/" // + {Recipe_ID} GET to get || PUT to edit
+    case recipeByID = "recipe/" // + {Recipe_ID} GET to get || PUT to edit || DELETE to delete
     case recipeCreate = "recipe" // POST
     case recipeFind = "recipe/find" // GET
     case recipePDFCreate = "recipe/to-pdf/" // + {Recipe_ID} GET

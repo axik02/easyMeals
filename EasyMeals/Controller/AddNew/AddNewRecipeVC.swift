@@ -51,6 +51,7 @@ class AddNewRecipeVC: ParentVC {
     private var choosenImage = UIImage()
     
     private var categoryArray = Constants.categoriesViewModel!.categoriesArray
+    private var isRecipeAdded = false
     
     var recipeID: Int?
     private var currentFileID: Int?
@@ -188,6 +189,7 @@ class AddNewRecipeVC: ParentVC {
             self.stopProcessing()
             switch result {
             case .success(let data):
+                self.recipeID = data.recipeData?.recipeid
                 self.performSegue(withIdentifier: "GotoIngredientsSegue", sender: data)
             case .error(let error):
                 Constants.showAlert("Error", message: error.description)

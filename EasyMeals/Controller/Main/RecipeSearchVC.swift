@@ -100,6 +100,7 @@ class RecipeSearchVC: ParentVC {
             if let recipeDetailsVC = segue.destination as? RecipeDetailsVC {
                 if let recipeID = sender as? Int {
                     recipeDetailsVC.recipeID = recipeID
+                    recipeDetailsVC.recipeDelegate = self
                 }
             }
         }
@@ -144,6 +145,29 @@ extension RecipeSearchVC: UITableViewDelegate, UITableViewDataSource {
         let recipe = recipesArray[indexPath.row]
         let recipeID = recipe.recipeid!
         self.performSegue(withIdentifier: "GotoRecipeDetailsVC", sender: recipeID)
+    }
+    
+}
+
+extension RecipeSearchVC: RecipeDelegate {
+    
+    func recipeDidDeleted(_ recipeID: Int) {
+        var index = -1
+        
+        for (i,recipe) in self.recipesArray.enumerated() {
+            if recipe.recipeid == recipeID {
+                index = i
+            }
+        }
+        
+        if index != -1 {
+            let indexPath = IndexPath(row: index, section: 0)
+            self.recipesArray.remove(at: index)
+            self.contentTableView.deleteRows(at: [indexPath], with: .fade)
+            UIView.performWithoutAnimation {
+                self.contentTableView.reloadData()
+            }
+        }
     }
     
 }

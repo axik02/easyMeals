@@ -125,6 +125,14 @@ extension MenuVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             let cell = contentCollectionView.dequeueReusableCell(withReuseIdentifier: "ContentCell", for: indexPath) as! MenuContentCVCell
             cell.parentVCDelegate = self
             cell.menuGetRecipe(withDay: day)
+            cell.dispatchGroup.notify(queue: .main) { [weak self] in
+                guard let self = self else { return }
+                if cell.contentTableView.isHidden == true {
+                    self.daysCollectionView.isHidden = true
+                } else {
+                    self.daysCollectionView.isHidden = false
+                }
+            }
             return cell
         default:
             return UICollectionViewCell()

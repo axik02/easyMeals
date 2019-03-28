@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol RecipeDelegate {
+    func recipeDidDeleted(_ recipeID: Int)
+}
+
 class RecipeDetailsVC: ParentVC {
     
     // MARK: - IBOutlets
@@ -25,6 +29,8 @@ class RecipeDetailsVC: ParentVC {
     @IBOutlet weak var detailsLabelBGView: UIView!
     @IBOutlet weak var ingredientsViewHeightConstraint: NSLayoutConstraint!
     
+    var recipeDelegate: RecipeDelegate?
+    
     // MARK: - IBActions
     
     @IBAction func backBtnTap(_ sender: UIButton) {
@@ -36,7 +42,9 @@ class RecipeDetailsVC: ParentVC {
     }
     
     @IBAction func shareBtnTap(_ sender: UIButton) {
+        self.startProcessing(withStatus: "Creating PDF link...")
         RequestManager.createRecipePDF(recipeID: recipeID) { (result) in
+            self.stopProcessing()
             switch result {
             case .success(let data):
                 self.performSegue(withIdentifier: "GotoUrlPopUpVC", sender: data.downloadLink)
@@ -47,6 +55,28 @@ class RecipeDetailsVC: ParentVC {
     }
     
     @IBAction func deleteBtnTap(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Confirm deletion", message: "Are you sure?", preferredStyle: .alert)
+        
+        alert.addAction(image: nil, title: "Delete", color: nil, style: .destructive, isEnabled: true) { (_) in
+            self.startProcessing()
+            RequestManager.deleteRecipe(recipeID: self.recipeID, complete: { [weak self] (result) in
+                guard let self = self else { return }
+                self.stopProcessing()
+                switch result {
+                case .success(_):
+                    self.recipeDelegate?.recipeDidDeleted(self.recipeID)
+                    self.onParentBack()
+                case .error(let error):
+                    Constants.showAlert("Error", message: error.localizedDescription)
+                }
+            })
+        }
+        
+        alert.addAction(image: nil, title: "Cancel", color: nil, style: .cancel, isEnabled: true) { (_) in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Variables
@@ -119,7 +149,8 @@ class RecipeDetailsVC: ParentVC {
     private func getRecipeData() {
         
         self.startProcessing()
-        RequestManager.getRecipeByID(recipeID: self.recipeID) { (result) in
+        RequestManager.getRecipeByID(recipeID: self.recipeID) { [weak self] (result) in
+            guard let self = self else { return }
             self.stopProcessing()
             switch result {
             case .success(let data):
@@ -137,8 +168,18 @@ class RecipeDetailsVC: ParentVC {
         self.nameLabel.text = recipeViewModel.recipeTitle
         self.recipeImageView.image = recipeViewModel.recipeImageView.image
         self.detailsLabel.text = recipeViewModel.recipeDescription
-        self.categoriesCollectionView.reloadData()
-        self.ingredientsCollectionView.reloadData()
+        UIView.performWithoutAnimation {
+            self.categoriesCollectionView.reloadData()
+            self.ingredientsCollectionView.reloadData()
+        }
+        
+        if Constants.currentUser!.data!.usersID != recipeViewModel.ownerID {
+            self.editBtn.isHidden = true
+            self.deleteBtn.isHidden = true
+        } else {
+            self.editBtn.isHidden = false
+            self.deleteBtn.isHidden = false
+        }
         
         self.fixConstraints()
     }

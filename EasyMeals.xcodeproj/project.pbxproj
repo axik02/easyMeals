@@ -64,6 +64,7 @@
 		B5C0C00D224B80ED00754039 /* RecipePdf.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0C00C224B80ED00754039 /* RecipePdf.swift */; };
 		B5C0C00F224BB4B900754039 /* MenuRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0C00E224BB4B900754039 /* MenuRecipes.swift */; };
 		B5C0C011224BCAD500754039 /* MenuContentCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0C010224BCAD500754039 /* MenuContentCVCell.swift */; };
+		B5C0C013224CFA4B00754039 /* RestorePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0C012224CFA4B00754039 /* RestorePasswordVC.swift */; };
 		B5C2C2FF221EAD13001E903B /* CountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C2C2FE221EAD13001E903B /* CountingLabel.swift */; };
 		B5C2C30C221EB4C4001E903B /* MyriadPro-Cond.otf in Resources */ = {isa = PBXBuildFile; fileRef = B5C2C302221EB4C1001E903B /* MyriadPro-Cond.otf */; };
 		B5C2C30D221EB4C4001E903B /* MyriadPro-BoldCondIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = B5C2C303221EB4C1001E903B /* MyriadPro-BoldCondIt.otf */; };
@@ -209,6 +210,7 @@
 		B5C0C00C224B80ED00754039 /* RecipePdf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePdf.swift; sourceTree = "<group>"; };
 		B5C0C00E224BB4B900754039 /* MenuRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRecipes.swift; sourceTree = "<group>"; };
 		B5C0C010224BCAD500754039 /* MenuContentCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContentCVCell.swift; sourceTree = "<group>"; };
+		B5C0C012224CFA4B00754039 /* RestorePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestorePasswordVC.swift; sourceTree = "<group>"; };
 		B5C2C2FE221EAD13001E903B /* CountingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingLabel.swift; sourceTree = "<group>"; };
 		B5C2C302221EB4C1001E903B /* MyriadPro-Cond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Cond.otf"; sourceTree = "<group>"; };
 		B5C2C303221EB4C1001E903B /* MyriadPro-BoldCondIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BoldCondIt.otf"; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 			children = (
 				B5381470221D8A89002FE0A3 /* SignInVC.swift */,
 				B5381472221D8A92002FE0A3 /* SignUpVC.swift */,
+				B5C0C012224CFA4B00754039 /* RestorePasswordVC.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -1106,6 +1109,7 @@
 				B5C2C38922257E3B001E903B /* UITextView+Extensions.swift in Sources */,
 				B5C2C38222257E3B001E903B /* Array+Extensions.swift in Sources */,
 				B520C4492249075F00A6FF62 /* CollapsibleTableViewHeader.swift in Sources */,
+				B5C0C013224CFA4B00754039 /* RestorePasswordVC.swift in Sources */,
 				B5C2C39622257E3B001E903B /* LocaleStore.swift in Sources */,
 				B5C2C3A922257E3B001E903B /* ContactCell.swift in Sources */,
 				B55C347C2215AE8B001B1E0D /* Typealias.swift in Sources */,
